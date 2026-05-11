@@ -1,0 +1,360 @@
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Laskavá ruka</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/index.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#7E9F8C',
+                        'sage-dark': '#5E7F6B',
+                        cream: '#FCFAF7',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-cream">
+<div id="toast-container" class="fixed top-24 right-4 z-[100] flex flex-col gap-3 pointer-events-none"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+            <a href="index.html" class="logo-icon flex items-center gap-3 text-sage transition hover:opacity-80">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="23" y="6" width="4" height="8" fill="#5E7F6B" />
+                    <path d="M16 2L1 15H5V29H27V15H31L16 2Z" fill="#7E9F8C" />
+                    <path
+                        d="M16 24L14.3 22.4C11.1 19.5 9 17.4 9 14.9C9 12.9 10.6 11.4 12.6 11.4C13.7 11.4 14.8 11.9 15.5 12.8L16 13.3L16.5 12.8C17.2 11.9 18.3 11.4 19.4 11.4C21.4 11.4 23 12.9 23 14.9C23 17.4 20.9 19.5 17.7 22.4L16 24Z"
+                        fill="#FCFAF7" />
+                </svg>
+                <span class="font-semibold text-xl text-gray-700">Laskavá ruka</span>
+            </a>
+
+            <div class="flex items-center gap-6">
+                <div class="hidden md:flex gap-6 text-gray-600 font-medium text-sm">
+                    <a href="index.html#hero" class="nav-link hover:text-sage transition">Domů</a>
+                    <a href="index.html#o-mne" class="nav-link hover:text-sage transition">O mně</a>
+                    <a href="index.html#sluzby" class="nav-link hover:text-sage transition">Služby</a>
+                    <a href="certifikace.html" class="nav-link hover:text-sage transition">Certifikace</a>
+                </div>
+
+                <a href="index.html#kontakt"
+                    class="hidden md:block border-2 border-sage text-sage px-5 py-2 rounded-full font-semibold hover:bg-sage hover:text-white transition-all duration-300">
+                    Kontakt
+                </a>
+
+                <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-sage">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t px-6 py-4 space-y-3">
+            <a href="index.html#hero" class="block text-gray-600 font-medium">Domů</a>
+            <a href="index.html#o-mne" class="block text-gray-600 font-medium">O mně</a>
+            <a href="index.html#sluzby" class="block text-gray-600 font-medium">Služby</a>
+            <a href="certifikace.html" class="block text-sage font-semibold">Certifikace</a>
+            <a href="index.html#kontakt" class="block text-sage font-semibold">Kontakt</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="section relative">
+            <div class="hero-lines">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <line x1="10" y1="0" x2="10" y2="100" stroke="#7E9F8C" stroke-width="0.5" stroke-dasharray="4 4" />
+                    <line x1="30" y1="0" x2="30" y2="100" stroke="#7E9F8C" stroke-width="0.5" stroke-dasharray="4 4" />
+                    <line x1="70" y1="0" x2="70" y2="100" stroke="#7E9F8C" stroke-width="0.5" stroke-dasharray="4 4" />
+                    <line x1="90" y1="0" x2="90" y2="100" stroke="#7E9F8C" stroke-width="0.5" stroke-dasharray="4 4" />
+                </svg>
+            </div>
+
+            <div class="max-w-3xl text-center fade-in-up">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mt-4 leading-tight">
+                    Váš blízký nezůstane<br>
+                    <span class="text-sage italic">o víkendu sám</span>
+                </h1>
+                <p class="mt-6 text-gray-600 text-lg leading-relaxed max-w-xl mx-auto">
+                    Nemůžete se z jakéhokoliv důvodu o víkendu či svátcích postarat o své rodiče,
+                    prarodiče nebo sourozence? Nabízím své služby pečovatelky a to s úctou, zkušenostmi
+                    a lidským přístupem.
+                </p>
+                <div class="mt-8 flex justify-center gap-4">
+                    <a href="#kontakt"
+                        class="btn-primary text-white px-6 py-3 rounded-full font-semibold shadow-md">Domluvit
+                        schůzku</a>
+                    <a href="#sluzby"
+                        class="border border-sage text-sage px-6 py-3 rounded-full font-semibold hover:bg-sage hover:text-white transition">Co
+                        nabízím</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="o-mne" class="section bg-white overflow-hidden">
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center fade-in-up">
+
+                <div class="flex justify-center md:justify-end overflow-hidden px-4">
+                    <div
+                        class="w-72 h-72 md:w-96 md:h-96 rounded-full bg-sage/10 flex items-center justify-center shadow-xl relative overflow-hidden">
+
+                        <img src="img/petra.png" alt="Pečovatelka - portrét"
+                            class="absolute bottom-0 w-full h-full object-cover object-top rounded-full">
+                    </div>
+                </div>
+
+                <div class="text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                        Jsem tu <span class="text-sage italic">pro vás</span>
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Jako pečovatelka pracuji již několik let a mám bohaté zkušenosti.
+                        Absolvovala jsem <strong>kurz pracovníka v sociálních službách</strong> a péči
+                        beru jako poslání, ne jen jako práci.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Pomáhám seniorům i lidem, kteří se o sebe nedokážou sami postarat,
+                        ale nechtějí platit obrovské peníze velkým agenturám. Jsem jednotlivec,
+                        přijedu k vám a vše zařídím s respektem a laskavostí.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="sluzby" class="section bg-cream">
+            <div class="max-w-4xl text-center fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    Co pro vás <span class="text-sage italic">udělám</span>
+                </h2>
+                <p class="text-gray-500 mb-12 max-w-lg mx-auto">
+                    Každý úkon vykonávám s trpělivostí a respektem k důstojnosti vašeho blízkého.
+                </p>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                    <div class="service-card bg-white p-6 rounded-2xl text-center">
+                        <div class="text-2xl text-sage mb-1">◆</div>
+                        <h3 class="font-semibold">Hygiena</h3>
+                    </div>
+                    <div class="service-card bg-white p-6 rounded-2xl text-center">
+                        <div class="text-2xl text-sage mb-1">❖</div>
+                        <h3 class="font-semibold">Strava</h3>
+                    </div>
+                    <div class="service-card bg-white p-6 rounded-2xl text-center">
+                        <div class="text-2xl text-sage mb-1">◈</div>
+                        <h3 class="font-semibold">Převlékání</h3>
+                    </div>
+                    <div class="service-card bg-white p-6 rounded-2xl text-center">
+                        <div class="text-2xl text-sage mb-1">✚</div>
+                        <h3 class="font-semibold">Léky</h3>
+                    </div>
+                    <div class="service-card bg-white p-6 rounded-2xl text-center">
+                        <div class="text-2xl text-sage mb-1">❀</div>
+                        <h3 class="font-semibold">Procházky</h3>
+                    </div>
+                    <div class="service-card bg-white p-6 rounded-2xl text-center">
+                        <div class="text-2xl text-sage mb-1">✿</div>
+                        <h3 class="font-semibold">Společnost</h3>
+                    </div>
+                </div>
+                <p class="mt-8 text-gray-600 text-sm">
+                    Pomohu s hygienou, zajištěním obědů, podáním snídaně i večeře, převlékáním,
+                    dohledem nad léky nebo třeba procházkou aby váš blízký nebyl o víkendu sám.
+                </p>
+            </div>
+        </section>
+
+        <section id="kontakt" class="section bg-white">
+            <div class="max-w-6xl w-full grid md:grid-cols-5 gap-12 items-start fade-in-up">
+                <div class="md:col-span-2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                        Ozvěte se <span class="text-sage italic">mi</span>
+                    </h2>
+                    <p class="text-gray-600 mb-8">
+                        Neváhejte mne kontaktovat na telefonním čísle nebo na emailu.
+                        Ráda s vámi vše proberu.
+                    </p>
+                    <div class="space-y-3 text-gray-700">
+                        <div class="flex items-center gap-2"><span class="text-xl">📞</span> +420 123 456 789</div>
+                        <div class="flex items-center gap-2"><span class="text-xl">✉️</span> pece@nablizku.cz</div>
+                    </div>
+                </div>
+
+                <form id="contact-form" class="md:col-span-3 bg-cream p-8 rounded-2xl space-y-5 relative">
+
+                    <input type="hidden" name="access_key" value="8211f660-50dc-4cdf-96a3-b16d12f6ec5e">
+                    <input type="hidden" name="subject" value="Nová zpráva z webu Laskavá ruka">
+                    <input type="hidden" name="from_name" value="Web Laskavá ruka">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Jméno</label>
+                        <input type="text" name="Jméno" placeholder="Jana Nováková" required
+                            class="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-sage focus:ring-1 transition">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+                        <input type="email" name="Email" placeholder="jana@email.cz" required
+                            class="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-sage focus:ring-1 transition">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Telefon</label>
+                        <input type="tel" name="Telefon" placeholder="+420 123 456 789"
+                            class="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-sage focus:ring-1 transition">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Zpráva</label>
+                        <textarea name="Zpráva" rows="4" placeholder="S čím mohu pomoci?" required
+                            class="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-sage focus:ring-1 transition"></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="btn-primary w-full py-3 rounded-lg text-white font-semibold bg-sage hover:bg-[#5E7F6B] transition">Odeslat
+                        zprávu</button>
+
+                    <div id="form-result" class="hidden text-center p-4 rounded-lg font-medium border mt-4"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 px-6">
+        <div class="max-w-6xl mx-auto text-center md:text-left grid md:grid-cols-3 gap-8">
+            <div>
+                <span class="font-semibold text-lg">Laskavá ruka</span>
+                <p class="text-gray-400 text-sm mt-1">Péče s úctou</p>
+            </div>
+            <div>
+                <p class="text-gray-400 text-sm">📞 +420 123 456 789</p>
+                <p class="text-gray-400 text-sm">✉️ pece@nablizku.cz</p>
+            </div>
+            <div class="text-gray-500 text-sm">
+                © 2026 Laskavá ruka
+            </div>
+        </div>
+    </footer>
+
+<script>
+    // 1. Logika pro mobilní menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    // 2. Definice vlastních ikon (SVG)
+    const successIconHtml = `
+        <div class="w-8 h-8 rounded-full bg-sage flex items-center justify-center text-white flex-shrink-0 border-2 border-sage shadow-md">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+            </svg>
+        </div>`;
+
+    const errorIconHtml = `
+        <div class="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-white flex-shrink-0 border-2 border-red-600 shadow-md">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </div>`;
+
+    // 3. Funkce pro zobrazení Flash Message (Toast) s novým designem ikon
+    function showToast(message, type = 'success') {
+        const container = document.getElementById('toast-container');
+        if (!container) return; // Ochrana, pokud container chybí
+        
+        const toast = document.createElement('div');
+        
+        // Nastavení vzhledu a ikony podle typu
+        const isSuccess = type === 'success';
+        const borderColor = isSuccess ? 'border-sage/50' : 'border-red-600/50';
+        const iconHtml = isSuccess ? successIconHtml : errorIconHtml;
+
+        // Základní styl bubliny (moderní, s měkkým stínem)
+        toast.className = `pointer-events-auto min-w-[320px] max-w-[400px] bg-white border ${borderColor} shadow-2xl rounded-2xl p-4 flex items-center gap-4 transform transition-all duration-500 translate-x-full opacity-0`;
+        
+        // Složení HTML uvnitř bubliny
+        toast.innerHTML = `
+            ${iconHtml}
+            <div class="flex-1">
+                <p class="text-sm font-semibold text-gray-800 leading-snug">${message}</p>
+            </div>
+        `;
+
+        container.appendChild(toast);
+
+        // Animace dovnitř (vyjetí zprava)
+        setTimeout(() => {
+            toast.classList.remove('translate-x-full', 'opacity-0');
+        }, 100);
+
+        // Animace ven a smazání po 5 vteřinách
+        setTimeout(() => {
+            toast.classList.add('translate-x-full', 'opacity-0');
+            setTimeout(() => {
+                toast.remove();
+            }, 500); // Počkáme na dokončení tranzice
+        }, 5000);
+    }
+
+    // 4. Logika pro odesílání formuláře
+    const form = document.getElementById('contact-form');
+
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            const btn = form.querySelector('button[type="submit"]');
+            const originalBtnText = btn.innerText;
+            btn.innerText = "Odesílám...";
+            btn.disabled = true;
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                if (response.status == 200) {
+                    showToast("Zpráva byla úspěšně odeslána. Brzy se vám ozvu.", "success");
+                    form.reset();
+                } else {
+                    showToast("Omlouváme se, zprávu se nepodařilo odeslat.", "error");
+                }
+            })
+            .catch(error => {
+                showToast("Chyba připojení. Zkontrolujte prosím internet.", "error");
+            })
+            .finally(() => {
+                btn.innerText = originalBtnText;
+                btn.disabled = false;
+            });
+        });
+    }
+</script>
+</body>
+
+</html>

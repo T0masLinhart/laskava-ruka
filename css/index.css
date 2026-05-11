@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #FCFAF7;
+  color: #2D3A35;
+  position: relative;
+}
+
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 19px,
+    rgba(126, 159, 140, 0.04) 19px,
+    rgba(126, 159, 140, 0.04) 20px
+  );
+  background-size: 100% 20px;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-lines {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.08;
+}
+.hero-lines svg {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-link {
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1.5px;
+  background: #7E9F8C;
+  transition: width 0.3s;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.btn-contact {
+  background: #7E9F8C;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-contact:hover {
+  background: #5E7F6B;
+  transform: scale(1.03);
+}
+
+.btn-primary {
+  background: #7E9F8C;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-primary:hover {
+  background: #5E7F6B;
+  transform: translateY(-2px);
+}
+
+.service-card {
+  border: 1px solid #E9EFEA;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.service-card:hover {
+  box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+  border-color: #C9D9CE;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #7E9F8C !important;
+  box-shadow: 0 0 0 3px rgba(126,159,140,0.15);
+}
+
+.logo-icon:hover .logo-heart {
+  fill: #5E7F6B;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeUp 0.8s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
