@@ -1,10 +1,37 @@
+<!DOCTYPE html>
 <html lang="cs">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://laskavaruka.cz/sitemap.xml">
+
+    <title>Laskavá Ruka | Péče o seniory</title>
+
+    <meta name="description"
+        content="Profesionální a laskavá domácí péče o seniory. Pomáhám s hygienou, nákupy i doprovody k lékaři. S úctou k vašim blízkým.">
+
+    <meta name="keywords"
+        content="péče o seniory, domácí asistence, doprovod k lékaři, pomoc seniorům, laskavá péče, péče o starší osoby, asistence seniorům, laskavá ruka">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://laskavaruka.cz/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://laskavaruka.cz/">
+    <meta property="og:title" content="Laskavá Ruka - Domácí péče o seniory s úctou">
+    <meta property="og:description"
+        content="Pomáhám seniorům v jejich přirozeném prostředí. Laskavá péče, doprovody a pomoc s domácností.">
+    <meta property="og:image" content="https://laskavaruka.cz/img/petra.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://laskavaruka.cz/">
+    <meta property="twitter:title" content="Laskavá Ruka | Domácí péče">
+    <meta property="twitter:description" content="Profesionální doprovody a asistence pro seniory.">
+    <meta property="twitter:image" content="https://laskavaruka.cz/img/petra.png">
+
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <title>Laskavá ruka</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/index.css">
@@ -25,7 +52,7 @@
 </head>
 
 <body class="bg-cream">
-<div id="toast-container" class="fixed top-24 right-4 z-[100] flex flex-col gap-3 pointer-events-none"></div>
+    <div id="toast-container" class="fixed top-24 right-4 z-[100] flex flex-col gap-3 pointer-events-none"></div>
 
     <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
         <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
@@ -248,113 +275,113 @@
         </div>
     </footer>
 
-<script>
-    // 1. Logika pro mobilní menu
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
+    <script>
+        // 1. Logika pro mobilní menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    }
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
-    // 2. Definice vlastních ikon (SVG)
-    const successIconHtml = `
+        // 2. Definice vlastních ikon (SVG)
+        const successIconHtml = `
         <div class="w-8 h-8 rounded-full bg-sage flex items-center justify-center text-white flex-shrink-0 border-2 border-sage shadow-md">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
             </svg>
         </div>`;
 
-    const errorIconHtml = `
+        const errorIconHtml = `
         <div class="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-white flex-shrink-0 border-2 border-red-600 shadow-md">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"/>
             </svg>
         </div>`;
 
-    // 3. Funkce pro zobrazení Flash Message (Toast) s novým designem ikon
-    function showToast(message, type = 'success') {
-        const container = document.getElementById('toast-container');
-        if (!container) return; // Ochrana, pokud container chybí
-        
-        const toast = document.createElement('div');
-        
-        // Nastavení vzhledu a ikony podle typu
-        const isSuccess = type === 'success';
-        const borderColor = isSuccess ? 'border-sage/50' : 'border-red-600/50';
-        const iconHtml = isSuccess ? successIconHtml : errorIconHtml;
+        // 3. Funkce pro zobrazení Flash Message (Toast) s novým designem ikon
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            if (!container) return; // Ochrana, pokud container chybí
 
-        // Základní styl bubliny (moderní, s měkkým stínem)
-        toast.className = `pointer-events-auto min-w-[320px] max-w-[400px] bg-white border ${borderColor} shadow-2xl rounded-2xl p-4 flex items-center gap-4 transform transition-all duration-500 translate-x-full opacity-0`;
-        
-        // Složení HTML uvnitř bubliny
-        toast.innerHTML = `
+            const toast = document.createElement('div');
+
+            // Nastavení vzhledu a ikony podle typu
+            const isSuccess = type === 'success';
+            const borderColor = isSuccess ? 'border-sage/50' : 'border-red-600/50';
+            const iconHtml = isSuccess ? successIconHtml : errorIconHtml;
+
+            // Základní styl bubliny (moderní, s měkkým stínem)
+            toast.className = `pointer-events-auto min-w-[320px] max-w-[400px] bg-white border ${borderColor} shadow-2xl rounded-2xl p-4 flex items-center gap-4 transform transition-all duration-500 translate-x-full opacity-0`;
+
+            // Složení HTML uvnitř bubliny
+            toast.innerHTML = `
             ${iconHtml}
             <div class="flex-1">
                 <p class="text-sm font-semibold text-gray-800 leading-snug">${message}</p>
             </div>
         `;
 
-        container.appendChild(toast);
+            container.appendChild(toast);
 
-        // Animace dovnitř (vyjetí zprava)
-        setTimeout(() => {
-            toast.classList.remove('translate-x-full', 'opacity-0');
-        }, 100);
-
-        // Animace ven a smazání po 5 vteřinách
-        setTimeout(() => {
-            toast.classList.add('translate-x-full', 'opacity-0');
+            // Animace dovnitř (vyjetí zprava)
             setTimeout(() => {
-                toast.remove();
-            }, 500); // Počkáme na dokončení tranzice
-        }, 5000);
-    }
+                toast.classList.remove('translate-x-full', 'opacity-0');
+            }, 100);
 
-    // 4. Logika pro odesílání formuláře
-    const form = document.getElementById('contact-form');
+            // Animace ven a smazání po 5 vteřinách
+            setTimeout(() => {
+                toast.classList.add('translate-x-full', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 500); // Počkáme na dokončení tranzice
+            }, 5000);
+        }
 
-    if (form) {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
+        // 4. Logika pro odesílání formuláře
+        const form = document.getElementById('contact-form');
 
-            const formData = new FormData(form);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
 
-            const btn = form.querySelector('button[type="submit"]');
-            const originalBtnText = btn.innerText;
-            btn.innerText = "Odesílám...";
-            btn.disabled = true;
+                const formData = new FormData(form);
+                const object = Object.fromEntries(formData);
+                const json = JSON.stringify(object);
 
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                if (response.status == 200) {
-                    showToast("Zpráva byla úspěšně odeslána. Brzy se vám ozvu.", "success");
-                    form.reset();
-                } else {
-                    showToast("Omlouváme se, zprávu se nepodařilo odeslat.", "error");
-                }
-            })
-            .catch(error => {
-                showToast("Chyba připojení. Zkontrolujte prosím internet.", "error");
-            })
-            .finally(() => {
-                btn.innerText = originalBtnText;
-                btn.disabled = false;
+                const btn = form.querySelector('button[type="submit"]');
+                const originalBtnText = btn.innerText;
+                btn.innerText = "Odesílám...";
+                btn.disabled = true;
+
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                    .then(async (response) => {
+                        if (response.status == 200) {
+                            showToast("Zpráva byla úspěšně odeslána. Brzy se vám ozvu.", "success");
+                            form.reset();
+                        } else {
+                            showToast("Omlouváme se, zprávu se nepodařilo odeslat.", "error");
+                        }
+                    })
+                    .catch(error => {
+                        showToast("Chyba připojení. Zkontrolujte prosím internet.", "error");
+                    })
+                    .finally(() => {
+                        btn.innerText = originalBtnText;
+                        btn.disabled = false;
+                    });
             });
-        });
-    }
-</script>
+        }
+    </script>
 </body>
 
 </html>
